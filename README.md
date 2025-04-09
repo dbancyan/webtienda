@@ -7,9 +7,11 @@ Estructura del Proyecto:
 /adidas-store/ │ ├── index.html - Página principal
 ├── products.html - Catálogo de productos
 ├── cart.html - Carrito de compras
-│ ├── /css/ │ ├── styles.css - Estilos principales
+│ ├── /css/
+│ ├── styles.css - Estilos principales
 │ └── components.css - Estilos de componentes reutilizables
-│ ├── /js/ │ ├── main.js - Funcionalidad general
+│ ├── /js/
+│ ├── main.js - Funcionalidad general
 │ ├── products.js - Lógica de productos
 │ └── cart.js - Manejo del carrito
 │ └── /img/ - Assets visuales
