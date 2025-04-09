@@ -1,0 +1,532 @@
+/* ============= COMPONENTES REUTILIZABLES ============= */
+
+/* ----- Badges / Etiquetas ----- */
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-primary {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.badge-secondary {
+    background-color: var(--gray-light);
+    color: var(--black);
+}
+
+.badge-sale {
+    background-color: var(--red);
+    color: var(--white);
+}
+
+/* ----- Cards ----- */
+.card {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.card-text {
+    color: var(--gray-dark);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+/* ----- Breadcrumbs ----- */
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15px 0;
+    list-style: none;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: "/";
+    padding: 0 10px;
+    color: var(--gray-medium);
+}
+
+.breadcrumb-link {
+    color: var(--gray-dark);
+    transition: color 0.3s;
+}
+
+.breadcrumb-link:hover {
+    color: var(--black);
+}
+
+.breadcrumb-active {
+    color: var(--black);
+    font-weight: 500;
+}
+
+/* ----- Pagination ----- */
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 30px 0;
+}
+
+.page-item {
+    margin: 0 5px;
+}
+
+.page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--white);
+    color: var(--black);
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.page-link:hover {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.page-active .page-link {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.page-disabled .page-link {
+    background-color: var(--gray-light);
+    color: var(--gray-medium);
+    cursor: not-allowed;
+}
+
+/* ----- Alerts / Notificaciones ----- */
+.alert {
+    padding: 15px 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+}
+
+.alert-icon {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.alert-success {
+    background-color: rgba(0, 200, 83, 0.1);
+    color: #00c853;
+    border-left: 4px solid #00c853;
+}
+
+.alert-error {
+    background-color: rgba(255, 23, 68, 0.1);
+    color: #ff1744;
+    border-left: 4px solid #ff1744;
+}
+
+.alert-warning {
+    background-color: rgba(255, 160, 0, 0.1);
+    color: #ffa000;
+    border-left: 4px solid #ffa000;
+}
+
+.alert-info {
+    background-color: rgba(0, 145, 234, 0.1);
+    color: #0091ea;
+    border-left: 4px solid #0091ea;
+}
+
+/* ----- Tooltips ----- */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8rem;
+}
+
+.tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--black) transparent transparent transparent;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* ----- Loaders ----- */
+.loader {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--gray-light);
+    border-top: 4px solid var(--black);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loader-small {
+    width: 20px;
+    height: 20px;
+    border-width: 2px;
+}
+
+/* ----- Modal ----- */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--white);
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    position: relative;
+    animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--gray-dark);
+    transition: color 0.3s;
+}
+
+.modal-close:hover {
+    color: var(--black);
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* ----- Tabs ----- */
+.tabs {
+    display: flex;
+    border-bottom: 1px solid var(--gray-light);
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--gray-dark);
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+.tab:hover {
+    color: var(--black);
+}
+
+.tab-active {
+    color: var(--black);
+    border-bottom-color: var(--black);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content-active {
+    display: block;
+}
+
+/* ----- Accordion ----- */
+.accordion-item {
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.accordion-header {
+    padding: 15px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+}
+
+.accordion-content {
+    padding-bottom: 15px;
+    display: none;
+}
+
+.accordion-icon {
+    transition: transform 0.3s;
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-item.active .accordion-content {
+    display: block;
+}
+
+/* ----- Quantity Selector ----- */
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--gray-medium);
+    border-radius: 4px;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.quantity-btn {
+    background-color: var(--gray-light);
+    border: none;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.quantity-btn:hover {
+    background-color: var(--gray-medium);
+}
+
+.quantity-input {
+    width: 40px;
+    height: 30px;
+    text-align: center;
+    border: none;
+    border-left: 1px solid var(--gray-medium);
+    border-right: 1px solid var(--gray-medium);
+    -moz-appearance: textfield;
+}
+
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* ----- Color Swatches ----- */
+.color-swatches {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.color-swatch {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.3s;
+}
+
+.color-swatch:hover {
+    transform: scale(1.1);
+}
+
+.color-swatch-active {
+    border-color: var(--black);
+    transform: scale(1.1);
+}
+
+/* ----- Size Selector ----- */
+.size-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.size-option {
+    min-width: 40px;
+    padding: 5px 10px;
+    border: 1px solid var(--gray-medium);
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.size-option:hover {
+    border-color: var(--black);
+}
+
+.size-option-disabled {
+    color: var(--gray-medium);
+    text-decoration: line-through;
+    cursor: not-allowed;
+}
+
+.size-option-active {
+    background-color: var(--black);
+    color: var(--white);
+    border-color: var(--black);
+}
+
+/* ----- Product Gallery ----- */
+.product-gallery {
+    display: flex;
+    gap: 15px;
+}
+
+.gallery-thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80px;
+}
+
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 1px solid var(--gray-light);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.thumbnail:hover {
+    border-color: var(--black);
+}
+
+.gallery-main {
+    flex: 1;
+}
+
+.main-image {
+    width: 100%;
+    height: 500px;
+    object-fit: contain;
+    background-color: var(--gray-light);
+    border-radius: 8px;
+}
+
+/* ----- Review Stars ----- */
+.review-stars {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.star {
+    color: var(--gray-medium);
+    font-size: 1rem;
+}
+
+.star-filled {
+    color: #ffc107;
+}
+
+/* ----- Responsive Adjustments ----- */
+@media (max-width: 768px) {
+    .product-gallery {
+        flex-direction: column-reverse;
+    }
+    
+    .gallery-thumbnails {
+        flex-direction: row;
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    
+    .main-image {
+        height: 300px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+}
